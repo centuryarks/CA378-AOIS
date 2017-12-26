@@ -6,6 +6,7 @@ This is Software Setup Guide.
 
 - **2017/12/15** - v1.0.0: Initial Release
 - **2017/12/18** - v1.0.1: "How to build sample code" added
+- **2017/12/26** - v1.0.2: Support 2 to 5 connected multiple cameras
 
 ## 1. Environment configuration
 
@@ -63,29 +64,25 @@ $ sudo reboot
 
 #### Installation procedure
 
-(1) Download "CA378_2L_v1.0_L4T27.1.tar.gz" from the following site.
+(1) Download "CA378_2L_v1.0.2_L4T27.1.tar.gz" from the following site.
 
 https://github.com/centuryarks/CA378-AOIS/releases
 
 ```
-$ wget --no-check-certificate https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0/CA378_2L_v1.0_L4T27.1.tar.gz
+$ wget --no-check-certificate https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.2/CA378_2L_v1.0.2_L4T27.1.tar.gz
 ```
 
-(2) Extract "CA378_2L_v1.0_L4T27.1.tar.gz" file.
+(2) Extract "CA378_2L_v1.0.2_L4T27.1.tar.gz" file.
 
 ```
-$ tar zxvf CA378_2L_v1.0_L4T27.1.tar.gz
+$ tar zxvf CA378_2L_v1.0.2_L4T27.1.tar.gz
 ```
 
-(3) Copy to "/boot/".
+(3) Edit "/boot/extlinux/extlinux.conf" and add the following the line of "FDT".
 
 ```
-$ cd CA378_2L_v1.0_L4T27.1
-$ sudo cp *Image /boot/
-$ sudo cp *.dtb /boot/
+$ sudo vim /boot/extlinux/extlinux.conf
 ```
-
-(4) Edit "/boot/extlinux/extlinux.conf" and add the following the line of "FDT".
 
 ```
 TIMEOUT 30
@@ -98,6 +95,22 @@ LABEL primary
       LINUX /boot/Image
       FDT /boot/tegra186-quill-p3310-1000-c03-00-imx378.dtb
       APPEND fbcon=map:0 net.ifnames=0 console=tty0 OS=l4t console=ttyS0,115200n8 memtype=0 video=tegrafb no_console_suspend=1 earlycon=uart8250,mmio32,0x03100000 gpt tegraid=18.1.2.0.0 tegra_keep_boot_clocks maxcpus=6 android.kerneltype=normal androidboot.serialno=0335115020673 vpr_resize root=/dev/mmcblk0p1 rw rootwait
+```
+
+(4) Configure the number of camera connections.
+
+Execute the following command and enter the number of camera connections.
+
+```
+$ cd CA378_2L_v1.0.2_L4T27.1/
+$ ./Install.sh
+What is the number of camera connections? : 5
+CN2 : CH1 Camera module installed
+CN3 : CH2 Camera module installed
+CN4 : CH3 Camera module installed
+CN5 : CH4 Camera module installed
+CN6 : CH5 Camera module installed
+Cameras will be available after reboot.
 ```
 
 (5) Shutdown Jetson TX2 and turn off the power.
@@ -118,6 +131,8 @@ LABEL primary
 ```
 
 (7) Turn on the power and start up Jetson TX2.
+
+***If you want to change the number of camera connections, repeat steps 4 to 7.***
 
 ## 3. Software install
 
