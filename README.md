@@ -14,9 +14,9 @@ Camera Module products equipped with OIS
 [CA378-AOIS Software Setup Guide v1.0 for Raspberry Pi 3](/Raspi3)
 
 ## Drivers
-[CA378-AOIS MIPI-2L v1.0.2 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.2/CA378_2L_v1.0.2_L4T27.1.tar.gz)
+[CA378-AOIS MIPI-2L v1.0.3 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.3/CA378_2L_v1.0.3_L4T27.1.tar.gz)
 (Support for Jetpack 3.0)
-- Support 2 to 5 connected multiple cameras
+- Fixed installation problem
 
 [CA378-AOIS MIPI-2L v1.0 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0/CA378_2L_v1.0_L4T27.1.tar.gz)
 (Support for Jetpack 3.0)

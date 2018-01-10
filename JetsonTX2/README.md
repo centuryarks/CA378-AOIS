@@ -7,6 +7,7 @@ This is Software Setup Guide.
 - **2017/12/15** - v1.0.0: Initial Release
 - **2017/12/18** - v1.0.1: "How to build sample code" added
 - **2017/12/26** - v1.0.2: Support 2 to 5 connected multiple cameras
+- **2018/01/10** - v1.0.3: Fixed installation problem
 
 ## 1. Environment configuration
 
@@ -64,18 +65,18 @@ $ sudo reboot
 
 #### Installation procedure
 
-(1) Download "CA378_2L_v1.0.2_L4T27.1.tar.gz" from the following site.
+(1) Download "CA378_2L_v1.0.3_L4T27.1.tar.gz" from the following site.
 
 https://github.com/centuryarks/CA378-AOIS/releases
 
 ```
-$ wget --no-check-certificate https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.2/CA378_2L_v1.0.2_L4T27.1.tar.gz
+$ wget --no-check-certificate https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.3/CA378_2L_v1.0.3_L4T27.1.tar.gz
 ```
 
-(2) Extract "CA378_2L_v1.0.2_L4T27.1.tar.gz" file.
+(2) Extract "CA378_2L_v1.0.3_L4T27.1.tar.gz" file.
 
 ```
-$ tar zxvf CA378_2L_v1.0.2_L4T27.1.tar.gz
+$ tar zxvf CA378_2L_v1.0.3_L4T27.1.tar.gz
 ```
 
 (3) Edit "/boot/extlinux/extlinux.conf" and add the following the line of "FDT".
@@ -102,7 +103,7 @@ LABEL primary
 Execute the following command and enter the number of camera connections.
 
 ```
-$ cd CA378_2L_v1.0.2_L4T27.1/
+$ cd CA378_2L_v1.0.3_L4T27.1/
 $ ./Install.sh
 What is the number of camera connections? : 5
 CN2 : CH1 Camera module installed
