@@ -27,6 +27,10 @@ OIS搭載カメラモジュール
 ## C言語サンプルプログラム
 [CA378-AOIS サンプルプログラム v1.0.0 for Jetson TX2](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_tx2.tar.gz)
 
+[CA378-AOIS サンプルプログラム v1.0.1 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.1/demo_v1.0.1_pi3.tar.gz)
+(SSP library 1.28 対応)
+- RAW to DNG変換にオプティカルブラック補正追加
+
 [CA378-AOIS サンプルプログラム v1.0.0 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_pi3.tar.gz)
 (SSP library 1.28 対応)
 
