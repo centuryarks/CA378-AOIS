@@ -27,6 +27,10 @@ Camera Module products equipped with OIS
 ## C Program examples
 [CA378-AOIS Sample code v1.0.0 for Jetson TX2](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_tx2.tar.gz)
 
+[CA378-AOIS Sample code v1.0.1 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.1/demo_v1.0.1_pi3.tar.gz)
+(Support for SSP library 1.28)
+- Added optical black correction for RAW to DNG conversion
+
 [CA378-AOIS Sample code v1.0.0 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_pi3.tar.gz)
 (Support for SSP library 1.28)
 
