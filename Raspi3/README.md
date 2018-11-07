@@ -1,6 +1,6 @@
 # CA378-AOIS for Raspberry Pi 3
 
-This is Software Setup Guide.
+This is CA378-AOIS sample code.
 
 ## History
 
@@ -9,3 +9,5 @@ This is Software Setup Guide.
   - Fixed missing of procedure manual
   - Added optical black correction for RAW to DNG conversion
   - Added color management adjustment for still image capturing
+- **2018/11/07** - v1.0.2:
+  - Update Installation Guide
