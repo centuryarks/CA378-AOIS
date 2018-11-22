@@ -11,3 +11,5 @@ This is CA378-AOIS sample code.
   - Added color management adjustment for still image capturing
 - **2018/11/07** - v1.0.2:
   - Update Installation Guide
+- **2018/11/22** - v1.0.3:
+  - Added Raspbian configuration procedure
