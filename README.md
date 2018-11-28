@@ -11,7 +11,7 @@ Camera Module products equipped with OIS
 ## Documents
 [CA378-AOIS Software Setup Guide v1.0.3 for Jetson TX2](/JetsonTX2)
 
-[CA378-AOIS Software Setup Guide v1.0.3 for Raspberry Pi 3](/Raspi3)
+[CA378-AOIS Software Setup Guide v1.0.4 for Raspberry Pi 3](/Raspi3)
 
 ## Drivers
 [CA378-AOIS MIPI-2L v1.0.3 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.3/CA378_2L_v1.0.3_L4T27.1.tar.gz)
@@ -31,6 +31,10 @@ Camera Module products equipped with OIS
 [CA378-AOIS Sample code v1.0.0 for Jetson TX2](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_tx2.tar.gz)
 
 ### CA378-AOIS Sample code for Raspberry Pi 3
+[CA378-AOIS Sample code v1.0.4 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.4/demo_v1.0.4_pi3.tar.gz)
+(Support for SSP library 1.31)
+- Support for Raspbian 2018-11-13, SSP library 1.31
+
 [CA378-AOIS Sample code v1.0.3 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.3/demo_v1.0.3_pi3.tar.gz)
 (Support for SSP library 1.31)
 - Added Raspbian configuration procedure

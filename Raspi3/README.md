@@ -13,3 +13,5 @@ This is CA378-AOIS sample code.
   - Update Installation Guide
 - **2018/11/22** - v1.0.3:
   - Added Raspbian configuration procedure
+- **2018/11/28** - v1.0.4:
+  - Support for Raspbian 2018-11-13, SSP library 1.31
