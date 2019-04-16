@@ -1,0 +1,188 @@
+/*
+ * tegra186-quill-p3310-1000-c03-00-imx378.dts: DTS file for Quill
+ * to enable imx378 image sensor.
+ *
+ * Copyright (c) 2017, CenturyArks All rights reserved.
+ * Copyright (c) 2016, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 of the License.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ */
+
+#include "tegra186-quill-p3310-1000-c03-00-base.dts"
+#include "quill-platforms/tegra186-quill-camera-imx378-c03.dtsi"
+
+/ {
+	nvidia,dtsfilename = __FILE__;
+
+	/* GPIO */
+	gpio@2200000 {
+		camera-control-input {
+			status = "disabled";
+		};
+		camera-control-output-low {
+			status = "disabled";
+		};
+		camera-control-output-high {
+			gpio-hog;
+			gpios = <CAM0_RST_L 0 CAM0_PWDN 0>;
+			label = "cam0-rst cam0-pwdn";
+			output-high;
+			status = "okay";
+		};
+	};
+
+	host1x {
+		vi_base: vi@15700000 {
+			ports {
+				vi_port0: port@0 {
+					status = "okay";
+					vi_in0: endpoint {
+						status = "okay";
+					};
+				};
+				vi_port1: port@1 {
+					status = "okay";
+					vi_in1: endpoint {
+						status = "okay";
+					};
+				};
+				vi_port2: port@2 {
+					status = "okay";
+					vi_in2: endpoint {
+						status = "okay";
+					};
+				};
+				vi_port3: port@3 {
+					status = "okay";
+					vi_in3: endpoint {
+						status = "okay";
+					};
+				};
+				vi_port4: port@4 {
+					status = "okay";
+					vi_in4: endpoint {
+						status = "okay";
+					};
+				};
+				vi_port5: port@5 {
+					status = "okay";
+					vi_in5: endpoint {
+						status = "okay";
+					};
+				};
+			};
+		};
+		csi_base: nvcsi@150c0000 {
+			csi_chan0: channel@0 {
+				status = "okay";
+				ports {
+					csi_chan0_port0: port@0 {
+						status = "okay";
+						csi_in0: endpoint@0 {
+							status = "okay";
+						};
+					};
+					csi_chan0_port1: port@1 {
+						status = "okay";
+						csi_out0: endpoint@1 {
+							status = "okay";
+						};
+					};
+				};
+			};
+			csi_chan1: channel@1 {
+				status = "okay";
+				ports {
+					csi_chan1_port0: port@0 {
+						status = "okay";
+						csi_in1: endpoint@2 {
+							status = "okay";
+						};
+					};
+					csi_chan1_port1: port@1 {
+						status = "okay";
+						csi_out1: endpoint@3 {
+							status = "okay";
+						};
+					};
+				};
+			};
+			csi_chan2: channel@2 {
+				status = "okay";
+				ports {
+					csi_chan2_port0: port@0 {
+						status = "okay";
+						csi_in2: endpoint@4 {
+							status = "okay";
+						};
+					};
+					csi_chan2_port1: port@1 {
+						status = "okay";
+						csi_out2: endpoint@5 {
+							status = "okay";
+						};
+					};
+				};
+			};
+			csi_chan3: channel@3 {
+				status = "okay";
+				ports {
+					csi_chan3_port0: port@0 {
+						status = "okay";
+						csi_in3: endpoint@6 {
+							status = "okay";
+						};
+					};
+					csi_chan3_port1: port@1 {
+						status = "okay";
+						csi_out3: endpoint@7 {
+							status = "okay";
+						};
+					};
+				};
+			};
+			csi_chan4: channel@4 {
+				status = "okay";
+				ports {
+					csi_chan4_port0: port@0 {
+						status = "okay";
+						csi_in4: endpoint@8 {
+							status = "okay";
+						};
+					};
+					csi_chan4_port1: port@1 {
+						status = "okay";
+						csi_out4: endpoint@9 {
+							status = "okay";
+						};
+					};
+				};
+			};
+			csi_chan5: channel@5 {
+				status = "okay";
+				ports {
+					csi_chan5_port0: port@0 {
+						status = "okay";
+						csi_in5: endpoint@10 {
+							status = "okay";
+						};
+					};
+					csi_chan5_port1: port@1 {
+						status = "okay";
+						csi_out5: endpoint@11 {
+							status = "okay";
+						};
+					};
+				};
+			};
+		};
+	};
+};
