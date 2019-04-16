@@ -31,11 +31,17 @@
 #define IMX378_IOCTL_SET_HDR_COARSE_TIME        _IOW('o', 8, struct imx378_hdr)
 #define IMX378_IOCTL_SET_POWER                  _IOW('o', 20, __u32)
 
+#define IMX378_GROUP_HOLD_ADDR                  0x0104
+
 #define IMX378_COARSE_TIME_ADDR_MSB             0x0202
 #define IMX378_COARSE_TIME_ADDR_LSB             0x0203
+#define IMX378_COARSE_TIME_SHORT_ADDR_MSB       0x0224
+#define IMX378_COARSE_TIME_SHORT_ADDR_LSB       0x0225
 
 #define IMX378_GAIN_ADDR_MSB                    0x0204
 #define IMX378_GAIN_ADDR_LSB                    0x0205
+
+#define IMX378_HDR_MODE_ADDR                    0x0220
 
 #define IMX378_FRAME_LENGTH_ADDR_MSB            0x0340
 #define IMX378_FRAME_LENGTH_ADDR_LSB            0x0341

@@ -20,6 +20,7 @@
 #define __IMX378_MODE_TABLES__
 
 #include <media/camera_common.h>
+#include "imx378_frame_setting.h"
 
 
 #define IMX378_TABLE_WAIT_MS                    0
@@ -50,12 +51,6 @@
 #define IMX378_POWER_SAVE_LOW                   (0x3F57)
 #define IMX378_DPGA_USE_GLOBAL_GAIN             (0x3FF9)
 
-#define IMX378_DATA_RATE_21                     (2088*2)        // 2.1Gbps x2
-#define IMX378_DATA_RATE_15                     (1476*2)        // 1.5Gbps x2
-#define IMX378_PLL_MULTI_21                     (2088*3/18)     // PLL
-#define IMX378_PLL_MULTI_15                     (1476*3/18)     // PLL
-#define IMX378_POWER_SAVE_RATE_21               (18/835)        // 18Mhz/835Mpix
-#define IMX378_POWER_SAVE_RATE_15               (18/590)        // 18Mhz/590Mpix
 #define IMX378_DEFAULT_COARSE_STORAGE_TIME      (0x03E8)        // 1000
 #define IMX378_DEFAULT_ANALOG_GAIN              (0x0000)        // ISO100
 #define IMX378_DEFAULT_PEDESTAL_VALUE           (0x40)          // 64
@@ -63,14 +58,6 @@
 #define IMX378_DEFAULT_DIG_GAIN_R               (213*256/100)   // R:  2.13
 #define IMX378_DEFAULT_DIG_GAIN_B               (193*256/100)   // G:  1.93
 #define IMX378_DEFAULT_DIG_GAIN_GB              (100*256/100)   // GB: 1.00
-#define IMX378_FARAME_H_4K3K                    (4350*2)
-#define IMX378_FARAME_V_4K3K                    (3200)
-#define IMX378_FARAME_H_4K2K                    (4100*2)
-#define IMX378_FARAME_V_4K2K                    (2400)
-#define IMX378_FARAME_H_FHD                     (2050*2)
-#define IMX378_FARAME_V_FHD                     (1200)
-#define IMX378_FARAME_H_VGA                     (1500*2)
-#define IMX378_FARAME_V_VGA                     (820)
 
 #define imx378_reg struct reg_8
 
@@ -102,6 +89,9 @@
         {IMX378_MANUAL_DATA_PEDESTAL_VALUE_HIGH, (((IMX378_DEFAULT_PEDESTAL_VALUE) >> 8) & 0xFF)},\
         {IMX378_MANUAL_DATA_PEDESTAL_VALUE_LOW,  (((IMX378_DEFAULT_PEDESTAL_VALUE)     ) & 0xFF)},
 
+/* Embedded line */
+#define EBD_SIZE {0xBCF1, 0x00},
+
 /* External clock frequency (18MHz) */
 #define EXTERNAL_CLOCK \
         {0x0136, 0x12},\
@@ -117,40 +107,74 @@
         {0x0114, 0x01},
 
 /* Clock Setting */
-#define CLOCK_SETTING_RAW10_21 \
+#define CLOCK_SETTING_RAW10_4K3K \
         {0x0301, 0x05},\
         {0x0303, 0x02},\
         {0x0305, 0x03},\
-        {0x0306, (((IMX378_PLL_MULTI_21) >> 8) & 0xFF)},\
-        {0x0307, (((IMX378_PLL_MULTI_21)     ) & 0xFF)},\
+        {0x0306, (((IMX378_PLL_MULTI_VIDEO) >> 8) & 0xFF)},\
+        {0x0307, (((IMX378_PLL_MULTI_VIDEO)     ) & 0xFF)},\
         {0x0309, 0x0A},\
-        {0x030B, 0x01},\
-        {0x030D, 0x02},\
-        {0x030E, (((IMX378_PLL_MULTI_21) >> 8) & 0xFF)},\
-        {0x030F, (((IMX378_PLL_MULTI_21)     ) & 0xFF)},\
-        {0x0310, 0x00},
-#define CLOCK_SETTING_RAW10_15 \
+        {0x030B, IMX378_SYCK_DIV_4K3K},\
+        {0x030D, 0x03},\
+        {0x030E, (((IMX378_PLL_MULTI_4K3K) >> 8) & 0xFF)},\
+        {0x030F, (((IMX378_PLL_MULTI_4K3K)     ) & 0xFF)},\
+        {0x0310, 0x01},
+#define CLOCK_SETTING_RAW10_4K2K \
         {0x0301, 0x05},\
         {0x0303, 0x02},\
         {0x0305, 0x03},\
-        {0x0306, (((IMX378_PLL_MULTI_15) >> 8) & 0xFF)},\
-        {0x0307, (((IMX378_PLL_MULTI_15)     ) & 0xFF)},\
+        {0x0306, (((IMX378_PLL_MULTI_VIDEO) >> 8) & 0xFF)},\
+        {0x0307, (((IMX378_PLL_MULTI_VIDEO)     ) & 0xFF)},\
         {0x0309, 0x0A},\
-        {0x030B, 0x01},\
-        {0x030D, 0x02},\
-        {0x030E, (((IMX378_PLL_MULTI_15) >> 8) & 0xFF)},\
-        {0x030F, (((IMX378_PLL_MULTI_15)     ) & 0xFF)},\
-        {0x0310, 0x00},
+        {0x030B, IMX378_SYCK_DIV_4K2K},\
+        {0x030D, 0x03},\
+        {0x030E, (((IMX378_PLL_MULTI_4K2K) >> 8) & 0xFF)},\
+        {0x030F, (((IMX378_PLL_MULTI_4K2K)     ) & 0xFF)},\
+        {0x0310, 0x01},
+#define CLOCK_SETTING_RAW10_FHD \
+        {0x0301, 0x05},\
+        {0x0303, 0x02},\
+        {0x0305, 0x03},\
+        {0x0306, (((IMX378_PLL_MULTI_VIDEO) >> 8) & 0xFF)},\
+        {0x0307, (((IMX378_PLL_MULTI_VIDEO)     ) & 0xFF)},\
+        {0x0309, 0x0A},\
+        {0x030B, IMX378_SYCK_DIV_FHD},\
+        {0x030D, 0x03},\
+        {0x030E, (((IMX378_PLL_MULTI_FHD) >> 8) & 0xFF)},\
+        {0x030F, (((IMX378_PLL_MULTI_FHD)     ) & 0xFF)},\
+        {0x0310, 0x01},
+#define CLOCK_SETTING_RAW10_VGA \
+        {0x0301, 0x05},\
+        {0x0303, 0x02},\
+        {0x0305, 0x03},\
+        {0x0306, (((IMX378_PLL_MULTI_VIDEO) >> 8) & 0xFF)},\
+        {0x0307, (((IMX378_PLL_MULTI_VIDEO)     ) & 0xFF)},\
+        {0x0309, 0x0A},\
+        {0x030B, IMX378_SYCK_DIV_VGA},\
+        {0x030D, 0x03},\
+        {0x030E, (((IMX378_PLL_MULTI_VGA) >> 8) & 0xFF)},\
+        {0x030F, (((IMX378_PLL_MULTI_VGA)     ) & 0xFF)},\
+        {0x0310, 0x01},
 
 /* Output Data Rate */
-#define OUTPUT_DATA_RATE_21 \
-        {0x0820, (((IMX378_DATA_RATE_21) >> 8) & 0xFF)},\
-        {0x0821, (((IMX378_DATA_RATE_21)     ) & 0xFF)},\
+#define OUTPUT_DATA_RATE_4K3K \
+        {0x0820, (((IMX378_DATA_RATE_4K3K) >> 8) & 0xFF)},\
+        {0x0821, (((IMX378_DATA_RATE_4K3K)     ) & 0xFF)},\
         {0x0822, 0x00},\
         {0x0823, 0x00},
-#define OUTPUT_DATA_RATE_15 \
-        {0x0820, (((IMX378_DATA_RATE_15) >> 8) & 0xFF)},\
-        {0x0821, (((IMX378_DATA_RATE_15)     ) & 0xFF)},\
+#define OUTPUT_DATA_RATE_4K2K \
+        {0x0820, (((IMX378_DATA_RATE_4K2K) >> 8) & 0xFF)},\
+        {0x0821, (((IMX378_DATA_RATE_4K2K)     ) & 0xFF)},\
+        {0x0822, 0x00},\
+        {0x0823, 0x00},
+#define OUTPUT_DATA_RATE_FHD \
+        {0x0820, (((IMX378_DATA_RATE_FHD) >> 8) & 0xFF)},\
+        {0x0821, (((IMX378_DATA_RATE_FHD)     ) & 0xFF)},\
+        {0x0822, 0x00},\
+        {0x0823, 0x00},
+#define OUTPUT_DATA_RATE_VGA \
+        {0x0820, (((IMX378_DATA_RATE_VGA) >> 8) & 0xFF)},\
+        {0x0821, (((IMX378_DATA_RATE_VGA)     ) & 0xFF)},\
         {0x0822, 0x00},\
         {0x0823, 0x00},
 
@@ -484,31 +508,31 @@
         {0x034B, 0xDF},
 #define VISIBLE_SIZE_4K2K \
         {0x0344, 0x00},\
-        {0x0345, 0x00},\
+        {0x0345, 0x6C},\
         {0x0346, 0x01},\
-        {0x0347, 0x78},\
+        {0x0347, 0xB8},\
         {0x0348, 0x0F},\
-        {0x0349, 0xD7},\
+        {0x0349, 0x6B},\
         {0x034A, 0x0A},\
-        {0x034B, 0x67},
+        {0x034B, 0x27},
 #define VISIBLE_SIZE_FHD \
         {0x0344, 0x00},\
-        {0x0345, 0x00},\
+        {0x0345, 0x6C},\
         {0x0346, 0x01},\
-        {0x0347, 0x78},\
+        {0x0347, 0xB8},\
         {0x0348, 0x0F},\
-        {0x0349, 0xD7},\
+        {0x0349, 0x6B},\
         {0x034A, 0x0A},\
-        {0x034B, 0x67},
+        {0x034B, 0x27},
 #define VISIBLE_SIZE_VGA \
-        {0x0344, 0x03},\
-        {0x0345, 0xAC},\
-        {0x0346, 0x02},\
-        {0x0347, 0xC0},\
-        {0x0348, 0x0C},\
-        {0x0349, 0x2B},\
-        {0x034A, 0x09},\
-        {0x034B, 0x1F},
+        {0x0344, 0x05},\
+        {0x0345, 0x6C},\
+        {0x0346, 0x04},\
+        {0x0347, 0x10},\
+        {0x0348, 0x0A},\
+        {0x0349, 0x6B},\
+        {0x034A, 0x07},\
+        {0x034B, 0xCF},
 
 /* Mode Setting */
 #define MODE_SETTING_4K3K \
@@ -586,11 +610,11 @@
         {0x0387, 0x01},\
         {0x0900, 0x01},\
         {0x0901, 0x22},\
-        {0x0902, 0x00},\
+        {0x0902, 0x02},\
         {0x3140, 0x02},\
         {0x3C00, 0x00},\
-        {0x3C01, 0x01},\
-        {0x3C02, 0x9C},\
+        {0x3C01, 0x03},\
+        {0x3C02, 0xDC},\
         {0x3F0D, 0x00},\
         {0x5748, 0x00},\
         {0x5749, 0x00},\
@@ -619,11 +643,11 @@
         {0x0387, 0x01},\
         {0x0900, 0x01},\
         {0x0901, 0x22},\
-        {0x0902, 0x00},\
+        {0x0902, 0x02},\
         {0x3140, 0x02},\
         {0x3C00, 0x00},\
-        {0x3C01, 0x01},\
-        {0x3C02, 0x9C},\
+        {0x3C01, 0x03},\
+        {0x3C02, 0xDC},\
         {0x3F0D, 0x00},\
         {0x5748, 0x00},\
         {0x5749, 0x00},\
@@ -662,9 +686,9 @@
         {0x0404, 0x00},\
         {0x0405, 0x10},\
         {0x0408, 0x00},\
-        {0x0409, 0x6C},\
+        {0x0409, 0x00},\
         {0x040A, 0x00},\
-        {0x040B, 0x40},\
+        {0x040B, 0x00},\
         {0x040C, 0x0F},\
         {0x040D, 0x00},\
         {0x040E, 0x08},\
@@ -674,25 +698,25 @@
         {0x0404, 0x00},\
         {0x0405, 0x10},\
         {0x0408, 0x00},\
-        {0x0409, 0x36},\
+        {0x0409, 0x00},\
         {0x040A, 0x00},\
-        {0x040B, 0x20},\
+        {0x040B, 0x00},\
         {0x040C, 0x07},\
         {0x040D, 0x80},\
         {0x040E, 0x04},\
         {0x040F, 0x38},
 #define CROP_SCALING_VGA \
-        {0x0401, 0x02},\
+        {0x0401, 0x00},\
         {0x0404, 0x00},\
-        {0x0405, 0x1B},\
+        {0x0405, 0x10},\
         {0x0408, 0x00},\
-        {0x0409, 0x02},\
+        {0x0409, 0x00},\
         {0x040A, 0x00},\
-        {0x040B, 0x02},\
-        {0x040C, 0x04},\
-        {0x040D, 0x3A},\
-        {0x040E, 0x03},\
-        {0x040F, 0x2C},
+        {0x040B, 0x00},\
+        {0x040C, 0x02},\
+        {0x040D, 0x80},\
+        {0x040E, 0x01},\
+        {0x040F, 0xE0},
 
 /* Output Crop */
 #define OUTPUT_CROP_4K3K \
@@ -752,17 +776,18 @@ static struct reg_8 mode_4056X3040[] = {
         MODE_SETTING_4K3K
         CROP_SCALING_4K3K
         OUTPUT_CROP_4K3K
-        CLOCK_SETTING_RAW10_21
-        OUTPUT_DATA_RATE_21
+        CLOCK_SETTING_RAW10_4K3K
+        OUTPUT_DATA_RATE_4K3K
         OUTPUT_DATA_SELECT
         /* PowerSave Setting */
         {IMX378_POWER_SAVE_MODE, 0x00},
-        {IMX378_POWER_SAVE_HIGH, (((IMX378_FARAME_H_4K3K*IMX378_POWER_SAVE_RATE_21+1) >> 8) & 0xFF)},
-        {IMX378_POWER_SAVE_LOW,  (((IMX378_FARAME_H_4K3K*IMX378_POWER_SAVE_RATE_21+1)     ) & 0xFF)},
+        {IMX378_POWER_SAVE_HIGH, (((IMX378_POWER_SAVE_RATE_4K3K) >> 8) & 0xFF)},
+        {IMX378_POWER_SAVE_LOW,  (((IMX378_POWER_SAVE_RATE_4K3K)     ) & 0xFF)},
         COARSE_STORAGE_TIME
         ANALOG_GAIN
         DIGITAL_GAIN
         PEDESTAL
+        EBD_SIZE
         GLOBAL_SETTING_FOOTER
         {IMX378_TABLE_WAIT_MS, IMX378_WAIT_MS},
         {IMX378_TABLE_END, 0x00}
@@ -787,17 +812,18 @@ static imx378_reg mode_3840X2160[] = {
         MODE_SETTING_4K2K
         CROP_SCALING_4K2K
         OUTPUT_CROP_4K2K
-        CLOCK_SETTING_RAW10_15
-        OUTPUT_DATA_RATE_15
+        CLOCK_SETTING_RAW10_4K2K
+        OUTPUT_DATA_RATE_4K2K
         OUTPUT_DATA_SELECT
         /* PowerSave Setting */
         {IMX378_POWER_SAVE_MODE, 0x00},
-        {IMX378_POWER_SAVE_HIGH, (((IMX378_FARAME_H_4K2K*IMX378_POWER_SAVE_RATE_15+1) >> 8) & 0xFF)},
-        {IMX378_POWER_SAVE_LOW,  (((IMX378_FARAME_H_4K2K*IMX378_POWER_SAVE_RATE_15+1)     ) & 0xFF)},
+        {IMX378_POWER_SAVE_HIGH, (((IMX378_POWER_SAVE_RATE_4K2K) >> 8) & 0xFF)},
+        {IMX378_POWER_SAVE_LOW,  (((IMX378_POWER_SAVE_RATE_4K2K)     ) & 0xFF)},
         COARSE_STORAGE_TIME
         ANALOG_GAIN
         DIGITAL_GAIN
         PEDESTAL
+        EBD_SIZE
         GLOBAL_SETTING_FOOTER
         {IMX378_TABLE_WAIT_MS, IMX378_WAIT_MS},
         {IMX378_TABLE_END, 0x00}
@@ -822,17 +848,18 @@ static struct reg_8 mode_1920X1080[] = {
         MODE_SETTING_FHD
         CROP_SCALING_FHD
         OUTPUT_CROP_FHD
-        CLOCK_SETTING_RAW10_15
-        OUTPUT_DATA_RATE_15
+        CLOCK_SETTING_RAW10_FHD
+        OUTPUT_DATA_RATE_FHD
         OUTPUT_DATA_SELECT
         /* PowerSave Setting */
         {IMX378_POWER_SAVE_MODE, 0x00},
-        {IMX378_POWER_SAVE_HIGH, (((IMX378_FARAME_H_FHD*IMX378_POWER_SAVE_RATE_15+1) >> 8) & 0xFF)},
-        {IMX378_POWER_SAVE_LOW,  (((IMX378_FARAME_H_FHD*IMX378_POWER_SAVE_RATE_15+1)     ) & 0xFF)},
+        {IMX378_POWER_SAVE_HIGH, (((IMX378_POWER_SAVE_RATE_FHD) >> 8) & 0xFF)},
+        {IMX378_POWER_SAVE_LOW,  (((IMX378_POWER_SAVE_RATE_FHD)     ) & 0xFF)},
         COARSE_STORAGE_TIME
         ANALOG_GAIN
         DIGITAL_GAIN
         PEDESTAL
+        EBD_SIZE
         GLOBAL_SETTING_FOOTER
         {IMX378_TABLE_WAIT_MS, IMX378_WAIT_MS},
         {IMX378_TABLE_END, 0x00}
@@ -857,17 +884,18 @@ static struct reg_8 mode_640X480[] = {
         MODE_SETTING_VGA
         CROP_SCALING_VGA
         OUTPUT_CROP_VGA
-        CLOCK_SETTING_RAW10_15
-        OUTPUT_DATA_RATE_15
+        CLOCK_SETTING_RAW10_VGA
+        OUTPUT_DATA_RATE_VGA
         OUTPUT_DATA_SELECT
         /* PowerSave Setting */
         {IMX378_POWER_SAVE_MODE, 0x00},
-        {IMX378_POWER_SAVE_HIGH, (((IMX378_FARAME_H_VGA*IMX378_POWER_SAVE_RATE_15+1) >> 8) & 0xFF)},
-        {IMX378_POWER_SAVE_LOW,  (((IMX378_FARAME_H_VGA*IMX378_POWER_SAVE_RATE_15+1)     ) & 0xFF)},
+        {IMX378_POWER_SAVE_HIGH, (((IMX378_POWER_SAVE_RATE_VGA) >> 8) & 0xFF)},
+        {IMX378_POWER_SAVE_LOW,  (((IMX378_POWER_SAVE_RATE_VGA)     ) & 0xFF)},
         COARSE_STORAGE_TIME
         ANALOG_GAIN
         DIGITAL_GAIN
         PEDESTAL
+        EBD_SIZE
         GLOBAL_SETTING_FOOTER
         {IMX378_TABLE_WAIT_MS, IMX378_WAIT_MS},
         {IMX378_TABLE_END, 0x00}
@@ -893,30 +921,26 @@ static const imx378_reg *mode_table[] = {
         [IMX378_MODE_TEST_PATTERN]      = tp_colorbars,
 };
 
-static const int imx378_30_fr[] = {
-        30,
+static const int imx378_4k3k_fr[] = {
+        IMX378_FPS_4K3K,
 };
 
-static const int imx378_60_fr[] = {
-        60,
+static const int imx378_4k2k_fr[] = {
+        IMX378_FPS_4K2K,
 };
 
-static const int imx378_120_fr[] = {
-        120,
+static const int imx378_fhd_fr[] = {
+        IMX378_FPS_FHD,
 };
 
-static const int imx378_240_fr[] = {
-        240,
-};
-
-static const int imx378_480_fr[] = {
-        480,
+static const int imx378_vga_fr[] = {
+        IMX378_FPS_VGA,
 };
 
 static const struct camera_common_frmfmt imx378_frmfmt[] = {
-        {{4056, 3040}, imx378_30_fr,  1, 0, IMX378_MODE_4056X3040},
-        {{3840, 2160}, imx378_30_fr,  1, 0, IMX378_MODE_3840X2160},
-        {{1920, 1080}, imx378_120_fr, 1, 0, IMX378_MODE_1920X1080},
-        {{ 640,  480}, imx378_240_fr, 1, 0, IMX378_MODE_640X480},
+        {{4056, 3040}, imx378_4k3k_fr, 1, 0, IMX378_MODE_4056X3040},
+        {{3840, 2160}, imx378_4k2k_fr, 1, 0, IMX378_MODE_3840X2160},
+        {{1920, 1080}, imx378_fhd_fr,  1, 0, IMX378_MODE_1920X1080},
+        {{ 640,  480}, imx378_vga_fr,  1, 0, IMX378_MODE_640X480},
 };
 #endif  /* __IMX378_MODE_TABLES__ */

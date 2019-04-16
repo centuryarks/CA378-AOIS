@@ -16,8 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "tegra186-camera-imx378-c03-cu.dtsi"
-
 / {
 	host1x {
 		vi@15700000 {
@@ -225,7 +223,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_a";
 						discontinuous_clk = "yes";
@@ -236,7 +234,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -249,7 +247,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_a";
 						discontinuous_clk = "yes";
@@ -258,10 +256,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -273,7 +271,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_a";
 						discontinuous_clk = "yes";
@@ -282,22 +280,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_a";
 						discontinuous_clk = "yes";
@@ -306,17 +304,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -350,7 +348,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_b";
 						discontinuous_clk = "yes";
@@ -361,7 +359,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -374,7 +372,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_b";
 						discontinuous_clk = "yes";
@@ -383,10 +381,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -398,7 +396,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_b";
 						discontinuous_clk = "yes";
@@ -407,22 +405,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_b";
 						discontinuous_clk = "yes";
@@ -431,17 +429,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "90";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -475,7 +473,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_c";
 						discontinuous_clk = "yes";
@@ -486,7 +484,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -499,7 +497,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_c";
 						discontinuous_clk = "yes";
@@ -508,10 +506,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -523,7 +521,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_c";
 						discontinuous_clk = "yes";
@@ -532,22 +530,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_c";
 						discontinuous_clk = "yes";
@@ -556,17 +554,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "90";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -600,7 +598,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_d";
 						discontinuous_clk = "yes";
@@ -611,7 +609,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -624,7 +622,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_d";
 						discontinuous_clk = "yes";
@@ -633,10 +631,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -648,7 +646,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_d";
 						discontinuous_clk = "yes";
@@ -657,22 +655,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_d";
 						discontinuous_clk = "yes";
@@ -681,17 +679,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "90";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -725,7 +723,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_e";
 						discontinuous_clk = "yes";
@@ -736,7 +734,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -749,7 +747,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_e";
 						discontinuous_clk = "yes";
@@ -758,10 +756,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -773,7 +771,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_e";
 						discontinuous_clk = "yes";
@@ -782,22 +780,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_e";
 						discontinuous_clk = "yes";
@@ -806,17 +804,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "90";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -850,7 +848,7 @@
 					iovdd-reg = "dovdd";
 
 					mode0 { // IMX378_MODE_4056X3040
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_f";
 						discontinuous_clk = "yes";
@@ -861,7 +859,7 @@
 						readout_orientation = "90";
 						line_length = "4350";
 						inherent_gain = "1";
-						mclk_multiplier = "116";
+						mclk_multiplier = "348";
 						pix_clk_hz = "417600000";
 
 						min_gain_val = "1.0";
@@ -874,7 +872,7 @@
 						max_exp_time = "65515";
 					};
 					mode1 { // IMX378_MODE_3840X2160
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_f";
 						discontinuous_clk = "yes";
@@ -883,10 +881,10 @@
 						active_h = "2160";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "4100";
+						line_length = "4250";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "285600000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
@@ -898,7 +896,7 @@
 						max_exp_time = "65515";
 					};
 					mode2 { // IMX378_MODE_1920X1080
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_f";
 						discontinuous_clk = "yes";
@@ -907,22 +905,22 @@
 						active_h = "1080";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "2050";
+						line_length = "2125";
 						inherent_gain = "1";
-						mclk_multiplier = "82";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "238";
+						pix_clk_hz = "142800000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "120";
+						max_framerate = "60";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
 					mode3 { // IMX378_MODE_640X480
-						mclk_khz = "18000";
+						mclk_khz = "6000";
 						num_lanes = "2";
 						tegra_sinterface = "serial_f";
 						discontinuous_clk = "yes";
@@ -931,17 +929,17 @@
 						active_h = "480";
 						pixel_t = "bayer_rggb";
 						readout_orientation = "90";
-						line_length = "1500";
+						line_length = "1556";
 						inherent_gain = "1";
-						mclk_multiplier = "90";
-						pix_clk_hz = "295200000";
+						mclk_multiplier = "275";
+						pix_clk_hz = "164400000";
 
 						min_gain_val = "1.0";
 						max_gain_val = "22.0";
 						min_hdr_ratio = "1";
 						max_hdr_ratio = "64";
 						min_framerate = "1";
-						max_framerate = "240";
+						max_framerate = "200";
 						min_exp_time = "1";
 						max_exp_time = "65515";
 					};
@@ -1053,10 +1051,12 @@
 		 */
 		modules {
 			module5 {
+				status = "okay";
 				badge = "imx378_CH1_396CP";
 				position = "0";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */
@@ -1071,10 +1071,12 @@
 				};
 			};
 			module4 {
+				status = "okay";
 				badge = "imx378_CH2_396CP";
 				position = "1";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */
@@ -1089,10 +1091,12 @@
 				};
 			};
 			module3 {
+				status = "okay";
 				badge = "imx378_CH3_396CP";
 				position = "2";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */
@@ -1107,10 +1111,12 @@
 				};
 			};
 			module2 {
+				status = "okay";
 				badge = "imx378_CH4_396CP";
 				position = "3";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */
@@ -1125,10 +1131,12 @@
 				};
 			};
 			module1 {
+				status = "okay";
 				badge = "imx378_CH5_396CP";
 				position = "4";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */
@@ -1143,10 +1151,12 @@
 				};
 			};
 			module0 {
+				status = "okay";
 				badge = "imx378_CH6_396CP";
 				position = "5";
 				orientation = "1";
 				drivernode0 {
+					status = "okay";
 					/* Declare PCL support driver (classically known as guid)  */
 					pcl_id = "v4l2_sensor";
 					/* Driver v4l2 device name */

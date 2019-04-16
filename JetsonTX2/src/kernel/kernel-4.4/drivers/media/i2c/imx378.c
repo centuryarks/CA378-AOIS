@@ -37,14 +37,14 @@
 #define IMX378_GAIN_SHIFT               8
 #define IMX378_MIN_GAIN                 (1  << IMX378_GAIN_SHIFT)
 #define IMX378_MAX_GAIN                 (22 << IMX378_GAIN_SHIFT)
-#define IMX378_MIN_FRAME_LENGTH         (0x0384)
+#define IMX378_MIN_FRAME_LENGTH         (0x0015)
 #define IMX378_MAX_FRAME_LENGTH         (0xFFFF)
 #define IMX378_MIN_EXPOSURE_COARSE      (0x0001)
 #define IMX378_MAX_EXPOSURE_COARSE      \
         (IMX378_MAX_FRAME_LENGTH-IMX378_MAX_COARSE_DIFF)
 
 #define IMX378_DEFAULT_GAIN             IMX378_MIN_GAIN
-#define IMX378_DEFAULT_FRAME_LENGTH     (0x099C)
+#define IMX378_DEFAULT_FRAME_LENGTH     (0x0960)
 #define IMX378_DEFAULT_EXPOSURE_COARSE  \
         (IMX378_DEFAULT_FRAME_LENGTH-IMX378_MAX_COARSE_DIFF)
 
@@ -275,6 +275,7 @@ static int imx378_power_on(struct camera_common_data *s_data)
 
         num_multi_camera++;
         dev_dbg(&priv->i2c_client->dev, "[%s]multi camera num: %d\n", __func__, num_multi_camera);
+        dev_dbg(&priv->i2c_client->dev, "%s: override_enable: %d\n", __func__, s_data->override_enable);
 
         return 0;
 
@@ -410,9 +411,12 @@ static int imx378_power_get(struct imx378 *priv)
         return err;
 }
 
+static int imx378_set_group_hold(struct imx378 *priv);
 static int imx378_set_gain(struct imx378 *priv, s32 val);
 static int imx378_set_frame_length(struct imx378 *priv, s32 val);
 static int imx378_set_coarse_time(struct imx378 *priv, s32 val);
+static int imx378_set_coarse_time_short(struct imx378 *priv, s32 val);
+static int imx378_set_hdr_enable(struct imx378 *priv, s32 val);
 
 static int imx378_s_stream(struct v4l2_subdev *sd, int enable)
 {
@@ -435,10 +439,19 @@ static int imx378_s_stream(struct v4l2_subdev *sd, int enable)
         if (err)
                 goto exit;
 
-
+#ifdef OVERRIDE_ENABLE
         if (s_data->override_enable) {
+#endif
                 /* write list of override regs for the asking frame length, */
                 /* coarse integration time, and gain.                       */
+
+                control.id = TEGRA_CAMERA_CID_HDR_EN;
+                err = v4l2_g_ctrl(&priv->ctrl_handler, &control);
+                err |= imx378_set_hdr_enable(priv, control.value);
+                if (err)
+                        dev_dbg(&client->dev,
+                                "%s: error HDR enable override\n", __func__);
+
                 control.id = TEGRA_CAMERA_CID_GAIN;
                 err = v4l2_g_ctrl(&priv->ctrl_handler, &control);
                 err |= imx378_set_gain(priv, control.value);
@@ -459,7 +472,16 @@ static int imx378_s_stream(struct v4l2_subdev *sd, int enable)
                 if (err)
                         dev_dbg(&client->dev,
                                 "%s: error coarse time override\n", __func__);
+
+                control.id = TEGRA_CAMERA_CID_COARSE_TIME_SHORT;
+                err = v4l2_g_ctrl(&priv->ctrl_handler, &control);
+                err |= imx378_set_coarse_time_short(priv, control.value);
+                if (err)
+                        dev_dbg(&client->dev,
+                                "%s: error coarse time override\n", __func__);
+#ifdef OVERRIDE_ENABLE
         }
+#endif
 
         if (test_mode) {
                 err = imx378_write_table(priv,
@@ -488,9 +510,13 @@ static int imx378_get_fmt(struct v4l2_subdev *sd,
 
 static int imx378_set_fmt(struct v4l2_subdev *sd,
                 struct v4l2_subdev_pad_config *cfg,
-        struct v4l2_subdev_format *format)
+                struct v4l2_subdev_format *format)
 {
         int ret;
+
+        struct i2c_client *client = v4l2_get_subdevdata(sd);
+        dev_dbg(&client->dev, "%s: format_code=%X width=%d height=%d\n",
+                __func__, format->format.code,format->format.width, format->format.height);
 
         if (format->which == V4L2_SUBDEV_FORMAT_TRY)
                 ret = camera_common_try_fmt(sd, &format->format);
@@ -547,6 +573,33 @@ static struct camera_common_sensor_ops imx378_common_ops = {
         .read_reg = imx378_read_reg,
 };
 
+static int imx378_set_group_hold(struct imx378 *priv)
+{
+        int err;
+        int gh_prev = switch_ctrl_qmenu[priv->group_hold_prev];
+
+        if (priv->group_hold_en == true && gh_prev == SWITCH_OFF) {
+                err = imx378_write_reg(priv->s_data,
+                                       IMX378_GROUP_HOLD_ADDR, 0x1);
+                if (err)
+                        goto fail;
+                priv->group_hold_prev = 1;
+        } else if (priv->group_hold_en == false && gh_prev == SWITCH_ON) {
+                err = imx378_write_reg(priv->s_data,
+                                       IMX378_GROUP_HOLD_ADDR, 0x0);
+                if (err)
+                        goto fail;
+                priv->group_hold_prev = 0;
+        }
+
+        return 0;
+
+fail:
+        dev_dbg(&priv->i2c_client->dev,
+                 "%s: Group hold control error\n", __func__);
+        return err;
+}
+
 static int imx378_set_gain(struct imx378 *priv, s32 val)
 {
         u8 data[2];
@@ -558,6 +611,8 @@ static int imx378_set_gain(struct imx378 *priv, s32 val)
 
         dev_dbg(&priv->i2c_client->dev,
                  "%s: val: %d\n", __func__, gain);
+
+        imx378_set_group_hold(priv);
 
         data[0] = (gain >> 8) & 0xff;
         data[1] = gain & 0xff;
@@ -582,6 +637,8 @@ static int imx378_set_frame_length(struct imx378 *priv, s32 val)
         dev_dbg(&priv->i2c_client->dev,
                  "%s: val: %d\n", __func__, val);
 
+        imx378_set_group_hold(priv);
+
         data[0] = (val >> 8) & 0xff;
         data[1] = val & 0xff;
         err = regmap_raw_write(priv->regmap, IMX378_FRAME_LENGTH_ADDR_MSB,
@@ -605,6 +662,8 @@ static int imx378_set_coarse_time(struct imx378 *priv, s32 val)
         dev_dbg(&priv->i2c_client->dev,
                  "%s: val: %d\n", __func__, val);
 
+        imx378_set_group_hold(priv);
+
         data[0] = (val >> 8) & 0xff;
         data[1] = val & 0xff;
         err = regmap_raw_write(priv->regmap, IMX378_COARSE_TIME_ADDR_MSB,
@@ -617,6 +676,58 @@ static int imx378_set_coarse_time(struct imx378 *priv, s32 val)
 fail:
         dev_dbg(&priv->i2c_client->dev,
                  "%s: COARSE_TIME control error\n", __func__);
+        return err;
+}
+
+static int imx378_set_coarse_time_short(struct imx378 *priv, s32 val)
+{
+        u8 data[2];
+        int err;
+
+        dev_dbg(&priv->i2c_client->dev,
+                 "%s: val: %d\n", __func__, val);
+
+        imx378_set_group_hold(priv);
+
+        data[0] = (val >> 8) & 0xff;
+        data[1] = val & 0xff;
+        err = regmap_raw_write(priv->regmap, IMX378_COARSE_TIME_SHORT_ADDR_MSB,
+                data, 2);
+        if (err)
+                goto fail;
+
+        return 0;
+
+fail:
+        dev_dbg(&priv->i2c_client->dev,
+                 "%s: COARSE_TIME control error\n", __func__);
+        return err;
+}
+
+static int imx378_set_hdr_enable(struct imx378 *priv, s32 val)
+{
+        u8 data;
+        int err;
+
+        dev_dbg(&priv->i2c_client->dev,
+                 "%s: val: %d\n", __func__, val);
+
+        if (val == 1) {
+                data = 0x21;
+        } else {
+                data = 0x00;
+        }
+
+        err = regmap_raw_write(priv->regmap, IMX378_HDR_MODE_ADDR,
+                &data, 1);
+        if (err)
+                goto fail;
+
+        return 0;
+
+fail:
+        dev_dbg(&priv->i2c_client->dev,
+                 "%s: HDR enable control error\n", __func__);
         return err;
 }
 
@@ -659,11 +770,18 @@ static int imx378_s_ctrl(struct v4l2_ctrl *ctrl)
                 err = imx378_set_coarse_time(priv, ctrl->val);
                 break;
         case TEGRA_CAMERA_CID_COARSE_TIME_SHORT:
-                err = imx378_set_coarse_time(priv, ctrl->val);
+                err = imx378_set_coarse_time_short(priv, ctrl->val);
                 break;
         case TEGRA_CAMERA_CID_GROUP_HOLD:
+                if (switch_ctrl_qmenu[ctrl->val] == SWITCH_ON) {
+                        priv->group_hold_en = true;
+                } else {
+                        priv->group_hold_en = false;
+                        err = imx378_set_group_hold(priv);
+                }
                 break;
         case TEGRA_CAMERA_CID_HDR_EN:
+                err = imx378_set_hdr_enable(priv, ctrl->val);
                 break;
         default:
                 pr_err("%s: unknown ctrl id.\n", __func__);
@@ -806,7 +924,7 @@ static int imx378_probe(struct i2c_client *client,
         struct camera_common_data *common_data;
         struct device_node *node = client->dev.of_node;
         struct imx378 *priv;
-        char debugfs_name[10];
+        //char debugfs_name[10];
         int err;
 
         pr_info("[IMX378]: probing v4l2 sensor.\n");
@@ -875,11 +993,14 @@ static int imx378_probe(struct i2c_client *client,
                 dev_err(&client->dev, "Failed to find port info\n");
                 return err;
         }
-    snprintf(debugfs_name, sizeof(debugfs_name), "%s.%s",
-            dev_driver_string(&client->dev), dev_name(&client->dev));
-        dev_dbg(&client->dev, "%s: name %s\n", __func__, debugfs_name);
+        //snprintf(debugfs_name, sizeof(debugfs_name), "%s.%s",
+        //        dev_driver_string(&client->dev), dev_name(&client->dev));
+        //dev_dbg(&client->dev, "%s: name %s\n", __func__, debugfs_name);
 
-        camera_common_create_debugfs(common_data, debugfs_name);
+        //camera_common_create_debugfs(common_data, debugfs_name);
+        err = camera_common_initialize(common_data, "imx378");
+        if (err)
+                return err;
 
         v4l2_i2c_subdev_init(priv->subdev, client, &imx378_subdev_ops);
 
@@ -928,7 +1049,8 @@ imx378_remove(struct i2c_client *client)
 
         v4l2_ctrl_handler_free(&priv->ctrl_handler);
         imx378_power_put(priv);
-        camera_common_remove_debugfs(s_data);
+        //camera_common_remove_debugfs(s_data);
+        camera_common_cleanup(s_data);
 
         return 0;
 }
