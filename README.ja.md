@@ -14,6 +14,13 @@ OIS搭載カメラモジュール
 [CA378-AOIS ソフトウェアセットアップガイド v1.0.4 for Raspberry Pi 3](/Raspi3)
 
 ## ドライバ
+
+[CA378-AOIS MIPI-2L v1.1.5 for Jetson TX2 (L4T 28.2/L4T 28.2.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.1.5_L4T28.2.1(Jetpack3.3)/CA378_2L_v1.1.5_L4T28.2.1_src_build.tar.gz)
+- Jetpack 3.2.1 / Jetpack 3.3 対応
+
+[CA378-AOIS MIPI-2L v1.1.0 for Jetson TX2 (L4T 28.2-rc)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.1.5_L4T28.2(Jetpack3.2.1)/CA378_2L_v1.1.5_L4T28.2_src_build.tar.gz)
+- Jetpack 3.2 対応
+
 [CA378-AOIS MIPI-2L v1.0.3 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/v1.0.3/CA378_2L_v1.0.3_L4T27.1.tar.gz)
 (Jetpack 3.0 対応)
 - インストール不具合修正
@@ -26,7 +33,12 @@ OIS搭載カメラモジュール
 
 ## C言語サンプルプログラム
 ### CA378-AOIS サンプルプログラム for Jetson TX2
+
+[CA378-AOIS Sample code v1.1.5 for Jetson TX2 (L4T 28.2/L4T 28.2.1)](https://github.com/centuryarks/Sample/releases/download/JSX2_v1.1.5(Jetpack3.2.1%2FJetpack3.3)/demo_v1.1.5_tx2.tar.gz)
+- Jetpack 3.2.1 / Jetpack 3.3 対応
+
 [CA378-AOIS サンプルプログラム v1.1.0 for Jetson TX2 (L4T 27.1)](https://github.com/centuryarks/Sample/releases/download/v1.1.0/demo_v1.1.0_tx2.tar.gz)
+- Jetpack 3.2 対応
 
 [CA378-AOIS サンプルプログラム v1.0.0 for Jetson TX2](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_tx2.tar.gz)
 
