@@ -1,4 +1,4 @@
-*Read this in other languages: [English](README.md), [譌･譛ｬ隱枉(README.ja.md)*
+*Read this in other languages: [English](README.md), [Japanese](README.ja.md)*
 
 # CA378-AOIS
 
