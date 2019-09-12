@@ -9,14 +9,16 @@ Camera Module products equipped with OIS
 [Camera Module](https://www.centuryarks.com/products/sensor/cm)
 
 ## Documents
+[CA378-AOIS Software Setup Guide v1.0.0 for Jetson Nano](/JetsonNano)
+
 [CA378-AOIS Software Setup Guide v1.0.3 for Jetson TX2](/JetsonTX2)
 
 [CA378-AOIS Software Setup Guide v1.0.4 for Raspberry Pi 3](/Raspi3)
 
 ## Drivers
 
-[CA378-AOIS MIPI-2L v1.1.5 for Jetson TX2 (L4T 28.2/L4T 28.2.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.1.5_L4T28.2.1(Jetpack3.3)/CA378_2L_v1.1.5_L4T28.2.1_src_build.tar.gz)
-- Support for Jetpack 3.2.1 / Jetpack 3.3
+[CA378-AOIS MIPI-2L v1.0.0 for Jetson Nano (L4T 32.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSNano_v1.0.0_L4T32.1(Jetpack4.2)/CA378_v1.0.0_Jetpack4.2_Nano_src_build.tar.gz)
+- Support for Jetpack 4.2
 
 [CA378-AOIS MIPI-2L v1.1.0 for Jetson TX2 (L4T 28.2-rc)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.1.5_L4T28.2(Jetpack3.2.1)/CA378_2L_v1.1.5_L4T28.2_src_build.tar.gz)
 - Support for Jetpack 3.2
@@ -32,6 +34,11 @@ Camera Module products equipped with OIS
 - Multi camera display (Support only 6 connected multiple cameras)
 
 ## C Program examples
+### CA378-AOIS Sample code for Jetson Nano
+
+[CA378-AOIS Sample code v1.0.0 for Jetson Nano (L4T 32.1)](https://github.com/centuryarks/Sample/releases/download/JSNano_v1.0.0_L4T32.1(Jetpack4.2)/demo_v1.0.0_nano.tar.gz)
+- Support for Jetpack 4.2
+
 ### CA378-AOIS Sample code for Jetson TX2
 
 [CA378-AOIS Sample code v1.1.5 for Jetson TX2 (L4T 28.2/L4T 28.2.1)](https://github.com/centuryarks/Sample/releases/download/JSX2_v1.1.5(Jetpack3.2.1%2FJetpack3.3)/demo_v1.1.5_tx2.tar.gz)
