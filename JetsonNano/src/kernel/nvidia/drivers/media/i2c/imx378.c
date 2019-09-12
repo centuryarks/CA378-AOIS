@@ -16,8 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define DEBUG (1)
-
 #include <linux/slab.h>
 #include <linux/uaccess.h>
 #include <linux/gpio.h>

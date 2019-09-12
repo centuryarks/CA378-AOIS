@@ -25,12 +25,12 @@
 #define IMX378_FARAME_V_4K2K                    (2240)
 #define IMX378_FARAME_H_FHD                     (6086)
 #define IMX378_FARAME_V_FHD                     (1150)
-#define IMX378_FARAME_H_VGA                     (12727)
-#define IMX378_FARAME_V_VGA                     (550)
+#define IMX378_FARAME_H_VGA                     (3500)
+#define IMX378_FARAME_V_VGA                     (1000)
 #define IMX378_FPS_4K3K                         (20)
 #define IMX378_FPS_4K2K                         (30)
 #define IMX378_FPS_FHD                          (120)
-#define IMX378_FPS_VGA                          (340)
+#define IMX378_FPS_VGA                          (240)
 #define IMX378_DATA_RATE_4K3K                   (250*6/1*2)     // Datarate(Mbps) for 4K3K
 #define IMX378_DATA_RATE_4K2K                   (250*6/1*2)     // Datarate(Mbps) for 4K2K
 #define IMX378_DATA_RATE_FHD                    (250*6/1*2)     // Datarate(Mbps) for FHD

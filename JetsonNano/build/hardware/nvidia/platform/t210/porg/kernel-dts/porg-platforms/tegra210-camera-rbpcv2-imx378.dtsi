@@ -288,7 +288,7 @@
 					active_h = "480";
 					pixel_t = "bayer_rggb";
 					readout_orientation = "90";
-					line_length = "1604";
+					line_length = "1250";
 					inherent_gain = "1";
 					mclk_multiplier = "250";
 					pix_clk_hz = "300000000";
@@ -303,9 +303,9 @@
 					min_hdr_ratio = "1";
 					max_hdr_ratio = "64";
 					min_framerate = "1000000"; /* 1.0 fps */
-					max_framerate = "340000000"; /* 340.0 fps */
+					max_framerate = "240000000"; /* 240.0 fps */
 					step_framerate = "1";
-					default_framerate = "340000000"; /* 340.0 fps */
+					default_framerate = "240000000"; /* 240.0 fps */
 					min_exp_time = "1"; /* us */
 					max_exp_time = "65515"; /* us */
 					step_exp_time = "1";
