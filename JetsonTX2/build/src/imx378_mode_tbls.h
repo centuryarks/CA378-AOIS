@@ -678,7 +678,7 @@
         {0x040A, 0x00},\
         {0x040B, 0x00},\
         {0x040C, 0x0F},\
-        {0x040D, 0xD8},\
+        {0x040D, 0xC0},\
         {0x040E, 0x0B},\
         {0x040F, 0xE0},
 #define CROP_SCALING_4K2K \
@@ -721,7 +721,7 @@
 /* Output Crop */
 #define OUTPUT_CROP_4K3K \
         {0x034C, 0x0F},\
-        {0x034D, 0xD8},\
+        {0x034D, 0xC0},\
         {0x034E, 0x0B},\
         {0x034F, 0xE0},
 #define OUTPUT_CROP_4K2K \
@@ -757,7 +757,7 @@ static const imx378_reg tp_colorbars[] = {
         {IMX378_TABLE_END, 0x00}
 };
 
-static struct reg_8 mode_4056X3040[] = {
+static struct reg_8 mode_4032X3040[] = {
         {IMX378_TABLE_WAIT_MS, 10},
         /* software reset */
         {0x0103, 0x01},
@@ -902,7 +902,7 @@ static struct reg_8 mode_640X480[] = {
 };
 
 enum {
-        IMX378_MODE_4056X3040 = 0,
+        IMX378_MODE_4032X3040 = 0,
         IMX378_MODE_3840X2160,
         IMX378_MODE_1920X1080,
         IMX378_MODE_640X480,
@@ -912,7 +912,7 @@ enum {
 };
 
 static const imx378_reg *mode_table[] = {
-        [IMX378_MODE_4056X3040]         = mode_4056X3040,
+        [IMX378_MODE_4032X3040]         = mode_4032X3040,
         [IMX378_MODE_3840X2160]         = mode_3840X2160,
         [IMX378_MODE_1920X1080]         = mode_1920X1080,
         [IMX378_MODE_640X480]           = mode_640X480,
@@ -938,7 +938,7 @@ static const int imx378_vga_fr[] = {
 };
 
 static const struct camera_common_frmfmt imx378_frmfmt[] = {
-        {{4056, 3040}, imx378_4k3k_fr, 1, 0, IMX378_MODE_4056X3040},
+        {{4032, 3040}, imx378_4k3k_fr, 1, 0, IMX378_MODE_4032X3040},
         {{3840, 2160}, imx378_4k2k_fr, 1, 0, IMX378_MODE_3840X2160},
         {{1920, 1080}, imx378_fhd_fr,  1, 0, IMX378_MODE_1920X1080},
         {{ 640,  480}, imx378_vga_fr,  1, 0, IMX378_MODE_640X480},

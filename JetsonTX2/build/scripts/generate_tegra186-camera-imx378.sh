@@ -10,8 +10,9 @@ CAMERA_NUM=$6
 source ./scripts/generate_framerate.sh
 
 LANE=("a" "b" "c" "d" "e" "f")
-WIDTH=(4056 3840 1920 640)
+WIDTH=(4032 3840 1920 640)
 HEIGHT=(3040 2160 1080 480)
+MODULE_TABLE=(1 3 5 0 2 4)
 LINE_LENGTH=(${LINE_LENGTH_4K3K} ${LINE_LENGTH_4K2K} ${LINE_LENGTH_FHD} ${LINE_LENGTH_VGA})
 MCLK_MULTI=(${PLL_4K3K} ${PLL_4K2K} ${PLL_FHD} ${PLL_VGA})
 PIX_CLK=(${PIX_CLK_4K3K} ${PIX_CLK_4K2K} ${PIX_CLK_FHD} ${PIX_CLK_VGA})
@@ -55,7 +56,7 @@ do
 		echo "				port@${ID} {">>${FNAME}
 		echo "					reg = <${ID}>;">>${FNAME}
 		echo "					vi_in${ID}: endpoint {">>${FNAME}
-		echo "						csi-port = <${ID}>;">>${FNAME}
+		echo "						port-index = <${ID}>;">>${FNAME}
 		echo "						bus-width = <2>;">>${FNAME}
 		echo "						remote-endpoint = <&csi_out${ID}>;">>${FNAME}
 		echo "					};">>${FNAME}
@@ -85,7 +86,7 @@ do
 		echo "					port@0 {">>${FNAME}
 		echo "						reg = <0>;">>${FNAME}
 		echo "						csi_in${ID}: endpoint@${EP0} {">>${FNAME}
-		echo "							csi-port = <${ID}>;">>${FNAME}
+		echo "							port-index = <${ID}>;">>${FNAME}
 		echo "							bus-width = <2>;">>${FNAME}
 		echo "							remote-endpoint = <&imx378_out${ID}>;">>${FNAME}
 		echo "						};">>${FNAME}
@@ -139,26 +140,41 @@ do
 			echo "						mclk_khz = \"6000\";">>${FNAME}
 			echo "						num_lanes = \"2\";">>${FNAME}
 			echo "						tegra_sinterface = \"serial_${LANE[${ID}]}\";">>${FNAME}
+			echo "						phy_mode = \"DPHY\";">>${FNAME}
 			echo "						discontinuous_clk = \"yes\";">>${FNAME}
 			echo "						cil_settletime = \"0\";">>${FNAME}
+			echo>>${FNAME}
 			echo "						active_w = \"${WIDTH[${MODE}]}\";">>${FNAME}
 			echo "						active_h = \"${HEIGHT[${MODE}]}\";">>${FNAME}
-			echo "						pixel_t = \"bayer_rggb\";">>${FNAME}
+#			echo "						pixel_t = \"bayer_rggb\";">>${FNAME}
+			echo "						mode_type = \"bayer\";">>${FNAME}
+			echo "						pixel_phase = \"rggb\";">>${FNAME}
+			echo "						csi_pixel_bit_depth = \"10\";">>${FNAME}
 			echo "						readout_orientation = \"90\";">>${FNAME}
 			echo "						line_length = \"${LINE_LENGTH[${MODE}]}\";">>${FNAME}
 			echo "						inherent_gain = \"1\";">>${FNAME}
-			echo "						mclk_multiplier = \"${MCLK_MULTI[${MODE}]}\";">>${FNAME}
+			echo "						mclk_multiplier = \"`expr ${MCLK_MULTI[${MODE}]} / ${SYCK_DIV[${MODE}]}`\";">>${FNAME}
 			echo "						pix_clk_hz = \"${PIX_CLK[${MODE}]}\";">>${FNAME}
 			echo>>${FNAME}
-			echo "						min_gain_val = \"1.0\";">>${FNAME}
-			echo "						max_gain_val = \"22.0\";">>${FNAME}
+			echo "						gain_factor = \"256\";">>${FNAME}
+			echo "						min_gain_val = \"256\";">>${FNAME}
+			echo "						max_gain_val = \"5632\";">>${FNAME}
+			echo "						step_gain_val = \"1\";">>${FNAME}
+			echo "						default_gain = \"256\";">>${FNAME}
 			echo "						min_hdr_ratio = \"1\";">>${FNAME}
 			echo "						max_hdr_ratio = \"64\";">>${FNAME}
-			echo "						min_framerate = \"1\";">>${FNAME}
-			echo "						max_framerate = \"${FPS[${MODE}]}\";">>${FNAME}
+			echo "						framerate_factor = \"1000000\";">>${FNAME}
+			echo "						min_framerate = \"1000000\";">>${FNAME}
+			echo "						max_framerate = \"${FPS[${MODE}]}000000\";">>${FNAME}
+			echo "						step_framerate = \"1\";">>${FNAME}
+			echo "						default_framerate= \"30000000\";">>${FNAME}
+			echo "						exposure_factor = \"1\";">>${FNAME}
 			echo "						min_exp_time = \"1\";">>${FNAME}
 			echo "						max_exp_time = \"65515\";">>${FNAME}
-#			echo "						embedded_metadata_height = \"2\";">>${FNAME}
+			echo "						step_exp_time = \"1\";">>${FNAME}
+
+			echo "						default_exp_time = \"`expr ${FRAME_LENGTH[${MODE}]} \- 20`\";/* us */">>${FNAME}
+			echo "						embedded_metadata_height = \"0\";">>${FNAME}
 			echo "					};">>${FNAME}
 		MODE=`expr ${MODE} + 1`
 	done
@@ -168,7 +184,7 @@ do
 	echo "						port@0 {">>${FNAME}
 	echo "							reg = <0>;">>${FNAME}
 	echo "							imx378_out${ID}: endpoint {">>${FNAME}
-	echo "								csi-port = <${ID}>;">>${FNAME}
+	echo "								port-index = <${ID}>;">>${FNAME}
 	echo "								bus-width = <2>;">>${FNAME}
 	echo "								remote-endpoint = <&csi_in${ID}>;">>${FNAME}
 	echo "							};">>${FNAME}
@@ -254,7 +270,7 @@ do
 	if [ ${ID} = ${CAMERA_NUM} ]; then
 		break
 	fi
-	MODULE=`expr 5 \- ${ID}`
+	MODULE=`expr ${MODULE_TABLE[${ID}]}`
 	CH=`expr ${ID} + 1`
 	echo "			module${MODULE} {">>${FNAME}
 	echo "				status = \"okay\";">>${FNAME}

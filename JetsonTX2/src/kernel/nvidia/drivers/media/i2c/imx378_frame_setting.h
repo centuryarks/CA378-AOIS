@@ -23,23 +23,23 @@
 #define IMX378_FARAME_V_4K3K                    (3200)
 #define IMX378_FARAME_H_4K2K                    (12500)
 #define IMX378_FARAME_V_4K2K                    (2240)
-#define IMX378_FARAME_H_FHD                     (12500)
-#define IMX378_FARAME_V_FHD                     (1120)
-#define IMX378_FARAME_H_VGA                     (7954)
-#define IMX378_FARAME_V_VGA                     (528)
+#define IMX378_FARAME_H_FHD                     (12444)
+#define IMX378_FARAME_V_FHD                     (1125)
+#define IMX378_FARAME_H_VGA                     (4000)
+#define IMX378_FARAME_V_VGA                     (1050)
 #define IMX378_FPS_4K3K                         (30)
 #define IMX378_FPS_4K2K                         (30)
 #define IMX378_FPS_FHD                          (60)
 #define IMX378_FPS_VGA                          (200)
 #define IMX378_DATA_RATE_4K3K                   (348*6/1*2)     // Datarate(Mbps) for 4K3K
 #define IMX378_DATA_RATE_4K2K                   (238*6/1*2)     // Datarate(Mbps) for 4K2K
-#define IMX378_DATA_RATE_FHD                    (238*6/2*2)     // Datarate(Mbps) for FHD
-#define IMX378_DATA_RATE_VGA                    (275*6/2*2)     // Datarate(Mbps) for VGA
+#define IMX378_DATA_RATE_FHD                    (252*6/2*2)     // Datarate(Mbps) for FHD
+#define IMX378_DATA_RATE_VGA                    (280*6/2*2)     // Datarate(Mbps) for VGA
 #define IMX378_PLL_MULTI_VIDEO                  (350)           // PLL multiplier for Internal Video Timing System Clock
 #define IMX378_PLL_MULTI_4K3K                   (348)           // PLL multiplier for Internal Output Pixel System
 #define IMX378_PLL_MULTI_4K2K                   (238)           // PLL multiplier for Internal Output Pixel System
-#define IMX378_PLL_MULTI_FHD                    (238)           // PLL multiplier for Internal Output Pixel System
-#define IMX378_PLL_MULTI_VGA                    (275)           // PLL multiplier for Internal Output Pixel System
+#define IMX378_PLL_MULTI_FHD                    (252)           // PLL multiplier for Internal Output Pixel System
+#define IMX378_PLL_MULTI_VGA                    (280)           // PLL multiplier for Internal Output Pixel System
 #define IMX378_SYCK_DIV_4K3K                    (1)             // System Clock Divider
 #define IMX378_SYCK_DIV_4K2K                    (1)             // System Clock Divider
 #define IMX378_SYCK_DIV_FHD                     (2)             // System Clock Divider

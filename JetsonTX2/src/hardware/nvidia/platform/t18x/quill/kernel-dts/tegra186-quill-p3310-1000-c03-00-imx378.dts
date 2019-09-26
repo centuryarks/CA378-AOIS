@@ -42,39 +42,39 @@
 	host1x {
 		vi_base: vi@15700000 {
 			ports {
-				vi_port0: port@0 {
+				imx378_vi_port0: port@0 {
 					status = "okay";
-					vi_in0: endpoint {
+					imx378_vi_in0: endpoint {
 						status = "okay";
 					};
 				};
-				vi_port1: port@1 {
+				imx378_vi_port1: port@1 {
 					status = "okay";
-					vi_in1: endpoint {
+					imx378_vi_in1: endpoint {
 						status = "okay";
 					};
 				};
-				vi_port2: port@2 {
+				imx378_vi_port2: port@2 {
 					status = "okay";
-					vi_in2: endpoint {
+					imx378_vi_in2: endpoint {
 						status = "okay";
 					};
 				};
-				vi_port3: port@3 {
+				imx378_vi_port3: port@3 {
 					status = "okay";
-					vi_in3: endpoint {
+					imx378_vi_in3: endpoint {
 						status = "okay";
 					};
 				};
-				vi_port4: port@4 {
+				imx378_vi_port4: port@4 {
 					status = "okay";
-					vi_in4: endpoint {
+					imx378_vi_in4: endpoint {
 						status = "okay";
 					};
 				};
-				vi_port5: port@5 {
+				imx378_vi_port5: port@5 {
 					status = "okay";
-					vi_in5: endpoint {
+					imx378_vi_in5: endpoint {
 						status = "okay";
 					};
 				};
@@ -86,13 +86,13 @@
 				ports {
 					csi_chan0_port0: port@0 {
 						status = "okay";
-						csi_in0: endpoint@0 {
+						imx378_csi_in0: endpoint@0 {
 							status = "okay";
 						};
 					};
 					csi_chan0_port1: port@1 {
 						status = "okay";
-						csi_out0: endpoint@1 {
+						imx378_csi_out0: endpoint@1 {
 							status = "okay";
 						};
 					};
@@ -103,13 +103,13 @@
 				ports {
 					csi_chan1_port0: port@0 {
 						status = "okay";
-						csi_in1: endpoint@2 {
+						imx378_csi_in1: endpoint@2 {
 							status = "okay";
 						};
 					};
 					csi_chan1_port1: port@1 {
 						status = "okay";
-						csi_out1: endpoint@3 {
+						imx378_csi_out1: endpoint@3 {
 							status = "okay";
 						};
 					};
@@ -120,13 +120,13 @@
 				ports {
 					csi_chan2_port0: port@0 {
 						status = "okay";
-						csi_in2: endpoint@4 {
+						imx378_csi_in2: endpoint@4 {
 							status = "okay";
 						};
 					};
 					csi_chan2_port1: port@1 {
 						status = "okay";
-						csi_out2: endpoint@5 {
+						imx378_csi_out2: endpoint@5 {
 							status = "okay";
 						};
 					};
@@ -137,13 +137,13 @@
 				ports {
 					csi_chan3_port0: port@0 {
 						status = "okay";
-						csi_in3: endpoint@6 {
+						imx378_csi_in3: endpoint@6 {
 							status = "okay";
 						};
 					};
 					csi_chan3_port1: port@1 {
 						status = "okay";
-						csi_out3: endpoint@7 {
+						imx378_csi_out3: endpoint@7 {
 							status = "okay";
 						};
 					};
@@ -154,13 +154,13 @@
 				ports {
 					csi_chan4_port0: port@0 {
 						status = "okay";
-						csi_in4: endpoint@8 {
+						imx378_csi_in4: endpoint@8 {
 							status = "okay";
 						};
 					};
 					csi_chan4_port1: port@1 {
 						status = "okay";
-						csi_out4: endpoint@9 {
+						imx378_csi_out4: endpoint@9 {
 							status = "okay";
 						};
 					};
@@ -171,13 +171,13 @@
 				ports {
 					csi_chan5_port0: port@0 {
 						status = "okay";
-						csi_in5: endpoint@10 {
+						imx378_csi_in5: endpoint@10 {
 							status = "okay";
 						};
 					};
 					csi_chan5_port1: port@1 {
 						status = "okay";
-						csi_out5: endpoint@11 {
+						imx378_csi_out5: endpoint@11 {
 							status = "okay";
 						};
 					};

@@ -33,18 +33,18 @@
 
 #define IMX378_GROUP_HOLD_ADDR                  0x0104
 
+#define IMX378_FRAME_LENGTH_ADDR_MSB            0x0340
+#define IMX378_FRAME_LENGTH_ADDR_LSB            0x0341
 #define IMX378_COARSE_TIME_ADDR_MSB             0x0202
 #define IMX378_COARSE_TIME_ADDR_LSB             0x0203
 #define IMX378_COARSE_TIME_SHORT_ADDR_MSB       0x0224
 #define IMX378_COARSE_TIME_SHORT_ADDR_LSB       0x0225
-
 #define IMX378_GAIN_ADDR_MSB                    0x0204
 #define IMX378_GAIN_ADDR_LSB                    0x0205
 
 #define IMX378_HDR_MODE_ADDR                    0x0220
-
-#define IMX378_FRAME_LENGTH_ADDR_MSB            0x0340
-#define IMX378_FRAME_LENGTH_ADDR_LSB            0x0341
+#define IMX378_MODEL_ID_ADDR_MSB                0x0016
+#define IMX378_MODEL_ID_ADDR_LSB                0x0017
 
 struct imx378_mode {
         __u32 xres;
