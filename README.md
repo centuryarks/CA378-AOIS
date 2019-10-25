@@ -9,6 +9,8 @@ Camera Module products equipped with OIS
 [Camera Module](https://www.centuryarks.com/products/sensor/cm)
 
 ## Documents
+[CA378-AOIS Software Setup Guide v1.0.0 for Tinker Board](/TinkerBoard)
+
 [CA378-AOIS Software Setup Guide v1.0.0 for Jetson Nano](/JetsonNano)
 
 [CA378-AOIS Software Setup Guide v1.2.0 for Jetson TX2](/JetsonTX2)
@@ -16,6 +18,9 @@ Camera Module products equipped with OIS
 [CA378-AOIS Software Setup Guide v1.0.4 for Raspberry Pi 3](/Raspi3)
 
 ## Drivers
+
+[CA378-AOIS MIPI-2L v1.0.0 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/CA378-AOIS/releases/download/TINKER_v1.0.0_v4.4.132(Debian9_v2.0.8)/CA378_v1.0.0_TinkerOS_Debian9_v2.0.8_src_build.tar.gz)
+- Support for TinkerOS Debian9 v2.0.8 (Kernel v4.4.132)
 
 [CA378-AOIS MIPI-2L v1.2.0 for Jetson TX2 (L4T 32.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.2.0_L4T32.1(Jetpack4.2)/CA378_2L_v1.2.0_L4T32.1_src_build.tar.gz)
 - Support for Jetpack 4.2
@@ -37,6 +42,11 @@ Camera Module products equipped with OIS
 - Multi camera display (Support only 6 connected multiple cameras)
 
 ## C Program examples
+### CA378-AOIS Sample code for Tinker Board
+
+[CA378-AOIS Sample code v1.0.0 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.0_v4.4.132(Debian9_v2.0.8)/demo_v1.0.0_tinker.tar.gz)
+- Support for TinkerOS Debian9 v2.0.8 (Kernel v4.4.132)
+
 ### CA378-AOIS Sample code for Jetson Nano
 
 [CA378-AOIS Sample code v1.0.0 for Jetson Nano (L4T 32.1)](https://github.com/centuryarks/Sample/releases/download/JSNano_v1.0.0_L4T32.1(Jetpack4.2)/demo_v1.0.0_nano.tar.gz)
