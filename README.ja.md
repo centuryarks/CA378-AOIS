@@ -9,7 +9,7 @@ OIS搭載カメラモジュール
 [カメラモジュール](https://www.centuryarks.com/products/sensor/cm)
 
 ## 手順書
-[CA378-AOIS ソフトウェアセットアップガイド v1.0.0 for Tinker Board](/TinkerBoard)
+[CA378-AOIS ソフトウェアセットアップガイド v1.0.1 for Tinker Board](/TinkerBoard)
 
 [CA378-AOIS ソフトウェアセットアップガイド v1.0.0 for Jetson Nano](/JetsonNano)
 
@@ -19,7 +19,7 @@ OIS搭載カメラモジュール
 
 ## ドライバ
 
-[CA378-AOIS MIPI-2L v1.0.0 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/CA378-AOIS/releases/download/TINKER_v1.0.0_v4.4.132(Debian9_v2.0.8)/CA378_v1.0.0_TinkerOS_Debian9_v2.0.8_src_build.tar.gz)
+[CA378-AOIS MIPI-2L v1.0.1 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/CA378-AOIS/releases/download/TINKER_v1.0.1_v4.4.132(Debian9_v2.0.8)/CA378_v1.0.1_TinkerOS_Debian9_v2.0.8_src_build.tar.gz)
 - TinkerOS Debian9 v2.0.8 (Kernel v4.4.132) 対応
 
 [CA378-AOIS MIPI-2L v1.2.0 for Jetson TX2 (L4T 32.1)](https://github.com/centuryarks/CA378-AOIS/releases/download/JSX2_v1.2.0_L4T32.1(Jetpack4.2)/CA378_2L_v1.2.0_L4T32.1_src_build.tar.gz)
@@ -47,7 +47,7 @@ OIS搭載カメラモジュール
 ## C言語サンプルプログラム
 ### CA378-AOIS サンプルプログラム for Tinker Board
 
-[CA378-AOIS Sample code v1.0.0 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.0_v4.4.132(Debian9_v2.0.8)/demo_v1.0.0_tinker.tar.gz)
+[CA378-AOIS Sample code v1.0.1 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.1_v4.4.132(Debian9_v2.0.8)/demo_v1.0.1_tinker.tar.gz)
 - TinkerOS Debian9 v2.0.8 (Kernel v4.4.132) 対応
 
 ### CA378-AOIS サンプルプログラム for Jetson Nano
@@ -57,7 +57,7 @@ OIS搭載カメラモジュール
 
 ### CA378-AOIS サンプルプログラム for Jetson TX2
 
-[CA378-AOIS サンプルプログラム v1.2.0 for Jetson TX2 (L4T 32.1)](https://github.com/centuryarks/Sample/releases/download/v1.2.0/demo_v1.2.0_tx2.tar.gz)
+[CA378-AOIS サンプルプログラム v1.2.0 for Jetson TX2 (L4T 32.1)](https://github.com/centuryarks/Sample/releases/download/JSX2_v1.2.0(Jetpack4.2)/demo_v1.2.0_tx2.tar.gz)
 - Jetpack 4.2 対応
 
 [CA378-AOIS Sample code v1.1.5 for Jetson TX2 (L4T 28.2/L4T 28.2.1)](https://github.com/centuryarks/Sample/releases/download/JSX2_v1.1.5(Jetpack3.2.1%2FJetpack3.3)/demo_v1.1.5_tx2.tar.gz)
