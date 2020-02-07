@@ -15,3 +15,5 @@ This is CA378-AOIS sample code.
   - Added Raspbian configuration procedure
 - **2018/11/28** - v1.0.4:
   - Support for Raspbian 2018-11-13, SSP library 1.31
+- **2020/02/07** - v1.0.5:
+  - Added changes to gain and exposure functions

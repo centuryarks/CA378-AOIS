@@ -69,6 +69,10 @@ OIS搭載カメラモジュール
 [CA378-AOIS サンプルプログラム v1.0.0 for Jetson TX2](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_tx2.tar.gz)
 
 ### CA378-AOIS サンプルプログラム for Raspberry Pi 3
+[CA378-AOIS サンプルプログラム v1.0.5 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.5/demo_v1.0.5_pi3.tar.gz)
+(SSP library 1.31 対応)
+- GainとExposureの調整機能を追加
+
 [CA378-AOIS サンプルプログラム v1.0.4 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0.4/demo_v1.0.4_pi3.tar.gz)
 (SSP library 1.31 対応)
 - Raspbian 2018-11-13, SSP library 1.31 対応
