@@ -15,7 +15,7 @@ Camera Module products equipped with OIS
 
 [CA378-AOIS Software Setup Guide v1.2.0 for Jetson TX2](/JetsonTX2)
 
-[CA378-AOIS Software Setup Guide v1.0.4 for Raspberry Pi 3](/Raspi3)
+[CA378-AOIS Software Setup Guide v1.0.5 for Raspberry Pi 3](/Raspi3)
 
 ## Drivers
 
