@@ -9,7 +9,7 @@ OIS搭載カメラモジュール
 [カメラモジュール](https://www.centuryarks.com/products/sensor/cm)
 
 ## 手順書
-[CA378-AOIS ソフトウェアセットアップガイド v1.0.1 for Tinker Board](/TinkerBoard)
+[CA378-AOIS ソフトウェアセットアップガイド v1.0.2 for Tinker Board](/TinkerBoard)
 
 [CA378-AOIS ソフトウェアセットアップガイド v1.0.0 for Jetson Nano](/JetsonNano)
 
@@ -47,7 +47,7 @@ OIS搭載カメラモジュール
 ## C言語サンプルプログラム
 ### CA378-AOIS サンプルプログラム for Tinker Board
 
-[CA378-AOIS Sample code v1.0.1 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.1_v4.4.132(Debian9_v2.0.8)/demo_v1.0.1_tinker.tar.gz)
+[CA378-AOIS Sample code v1.0.2 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.2_v4.4.132(Debian9_v2.0.8)/demo_v1.0.2_tinker.tar.gz)
 - TinkerOS Debian9 v2.0.8 (Kernel v4.4.132) 対応
 
 ### CA378-AOIS サンプルプログラム for Jetson Nano

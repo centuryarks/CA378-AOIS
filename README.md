@@ -9,7 +9,7 @@ Camera Module products equipped with OIS
 [Camera Module](https://www.centuryarks.com/products/sensor/cm)
 
 ## Documents
-[CA378-AOIS Software Setup Guide v1.0.1 for Tinker Board](/TinkerBoard)
+[CA378-AOIS Software Setup Guide v1.0.2 for Tinker Board](/TinkerBoard)
 
 [CA378-AOIS Software Setup Guide v1.0.0 for Jetson Nano](/JetsonNano)
 
@@ -44,7 +44,7 @@ Camera Module products equipped with OIS
 ## C Program examples
 ### CA378-AOIS Sample code for Tinker Board
 
-[CA378-AOIS Sample code v1.0.1 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.1_v4.4.132(Debian9_v2.0.8)/demo_v1.0.1_tinker.tar.gz)
+[CA378-AOIS Sample code v1.0.2 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/Sample/releases/download/TINKER_v1.0.2_v4.4.132(Debian9_v2.0.8)/demo_v1.0.2_tinker.tar.gz)
 - Support for TinkerOS Debian9 v2.0.8 (Kernel v4.4.132)
 
 ### CA378-AOIS Sample code for Jetson Nano
