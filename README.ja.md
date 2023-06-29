@@ -17,6 +17,8 @@ OIS搭載カメラモジュール
 
 [CA378-AOIS ソフトウェアセットアップガイド v1.0.5 for Raspberry Pi 3](/Raspi3)
 
+[CA378-AOIS ソフトウェアセットアップガイド v1.0.0 for Raspberry Pi 4](/Raspi4)
+
 ## ドライバ
 
 [CA378-AOIS MIPI-2L v1.0.1 for Tinker Board (TinkerOS Debian9 v2.0.8)](https://github.com/centuryarks/CA378-AOIS/releases/download/TINKER_v1.0.1_v4.4.132(Debian9_v2.0.8)/CA378_v1.0.1_TinkerOS_Debian9_v2.0.8_src_build.tar.gz)
@@ -43,6 +45,11 @@ OIS搭載カメラモジュール
 - 画像フォーマット：MIPI-2Lane対応 10ビットRAW
 - 解像度とフレームレート：4056x3040@30fps, 3840x2160@30fps, 1920x1080@120fps
 - 複数カメラ表示(複数カメラ接続6台固定)
+
+## セットアップスクリプト
+
+[CA378-AOIS MIPI-2L v1.0.0 for Raspberry Pi 4](https://github.com/centuryarks/CA378-AOIS/releases/download/RPi4_v1.0.0/demo_v1.0.0_pi4_setup_script.tar.gz)
+- Raspberry Pi OS 2023-05-03 (Kernel version: 6.1) Debian version: 11 (bullseye) 対応
 
 ## C言語サンプルプログラム
 ### CA378-AOIS サンプルプログラム for Tinker Board
@@ -91,6 +98,11 @@ OIS搭載カメラモジュール
 
 [CA378-AOIS サンプルプログラム v1.0.0 for Raspberry Pi 3](https://github.com/centuryarks/Sample/releases/download/v1.0/demo_v1.0.0_pi3.tar.gz)
 (SSP library 1.28 対応)
+
+### CA378-AOIS サンプルプログラム for Raspberry Pi 4
+[CA378-AOIS Sample code v1.0.0 for Raspberry Pi 4](https://github.com/centuryarks/Sample/releases/download/RPi4_v1.0.0/demo_v1.0.0_pi4.tar.gz)
+- Raspberry Pi OS 2023-05-03 (Kernel version: 6.1) Debian version: 11 (bullseye) 対応
+
 
 #### ご質問・お問い合わせ先
 ca-qa@centuryarks.com
