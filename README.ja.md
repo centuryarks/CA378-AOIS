@@ -17,7 +17,7 @@ OIS搭載カメラモジュール
 
 [CA378-AOIS ソフトウェアセットアップガイド v1.0.5 for Raspberry Pi 3](/Raspi3)
 
-[CA378-AOIS ソフトウェアセットアップガイド v1.0.0 for Raspberry Pi 4](/Raspi4)
+[CA378-AOIS ソフトウェアセットアップガイド v1.0.1 for Raspberry Pi 4](/Raspi4)
 
 ## ドライバ
 
@@ -47,6 +47,9 @@ OIS搭載カメラモジュール
 - 複数カメラ表示(複数カメラ接続6台固定)
 
 ## セットアップスクリプト
+
+[CA378-AOIS MIPI-2L v1.0.1 for Raspberry Pi 4](https://github.com/centuryarks/CA378-AOIS/releases/download/RPi4_v1.0.1/demo_v1.0.1_pi4_setup_script.tar.gz)
+- Raspberry Pi OS 2023-10-10 (Kernel version: 6.1) Debian version: 12 (bookworm) 対応
 
 [CA378-AOIS MIPI-2L v1.0.0 for Raspberry Pi 4](https://github.com/centuryarks/CA378-AOIS/releases/download/RPi4_v1.0.0/demo_v1.0.0_pi4_setup_script.tar.gz)
 - Raspberry Pi OS 2023-05-03 (Kernel version: 6.1) Debian version: 11 (bullseye) 対応
@@ -100,6 +103,9 @@ OIS搭載カメラモジュール
 (SSP library 1.28 対応)
 
 ### CA378-AOIS サンプルプログラム for Raspberry Pi 4
+[CA378-AOIS Sample code v1.0.1 for Raspberry Pi 4](https://github.com/centuryarks/Sample/releases/download/RPi4_v1.0.1/demo_v1.0.1_pi4.tar.gz)
+- Raspberry Pi OS 2023-05-03 (Kernel version: 6.1) Debian version: 12 (bookworm) 対応
+
 [CA378-AOIS Sample code v1.0.0 for Raspberry Pi 4](https://github.com/centuryarks/Sample/releases/download/RPi4_v1.0.0/demo_v1.0.0_pi4.tar.gz)
 - Raspberry Pi OS 2023-05-03 (Kernel version: 6.1) Debian version: 11 (bullseye) 対応
 
