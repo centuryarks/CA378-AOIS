@@ -6,7 +6,7 @@ Camera Module products equipped with OIS
 
 ## Products
 
-[Camera Module](https://www.centuryarks.com/products/sensor/cm)
+[Camera Module](https://centuryarks.com/en/cm/)
 
 ## Documents
 [CA378-AOIS Software Setup Guide v1.0.2 for Tinker Board](/TinkerBoard)
@@ -17,7 +17,7 @@ Camera Module products equipped with OIS
 
 [CA378-AOIS Software Setup Guide v1.0.5 for Raspberry Pi 3](/Raspi3)
 
-[CA378-AOIS Software Setup Guide v1.0.1 for Raspberry Pi 4](/Raspi4)
+[CA378-AOIS Software Setup Guide v2.0.0 for Raspberry Pi 4](/Raspi4)
 
 ## Drivers
 
@@ -44,6 +44,9 @@ Camera Module products equipped with OIS
 - Multi camera display (Support only 6 connected multiple cameras)
 
 ## Setup script
+
+[CA378-AOIS MIPI-2L v2.0.0 for Raspberry Pi 4](https://github.com/centuryarks/CA378-AOIS/releases/download/RPi4_v2.0.0/demo_v2.0.0_pi4_setup_script.tar.gz)
+- Support for CA378-AOIS-V2, CA378-V2wide
 
 [CA378-AOIS MIPI-2L v1.0.1 for Raspberry Pi 4](https://github.com/centuryarks/CA378-AOIS/releases/download/RPi4_v1.0.1/demo_v1.0.1_pi4_setup_script.tar.gz)
 - Support for Raspberry Pi OS 2023-10-10 (Kernel version: 6.1) Debian version: 12 (bookworm)
@@ -100,6 +103,9 @@ Camera Module products equipped with OIS
 (Support for SSP library 1.28)
 
 ### CA378-AOIS Sample code for Raspberry Pi 4
+[CA378-AOIS Sample code v2.0.0 for Raspberry Pi 4](https://github.com/centuryarks/Sample/releases/download/RPi4_v2.0.0/demo_v2.0.0_pi4.tar.gz)
+- Support for CA378-AOIS-V2, CA378-V2wide
+
 [CA378-AOIS Sample code v1.0.1 for Raspberry Pi 4](https://github.com/centuryarks/Sample/releases/download/RPi4_v1.0.1/demo_v1.0.1_pi4.tar.gz)
 - Support for Raspberry Pi OS 2023-10-10 (Kernel version: 6.1) Debian version: 12 (bookworm)
 
